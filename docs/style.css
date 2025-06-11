@@ -25,12 +25,12 @@ body{
 }
 
 header{
-    margin-top: 20px;
+    margin: auto 1rem auto;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1rem 9%;
+    padding: 3rem;
     background-color: transparent;
     filter: drop-shadow(10px 10px 10px black);
     display: flex;
@@ -51,18 +51,37 @@ header{
     transform: scale(1.1);
 }
 
-nav a{
-    font-size: 1.8rem;
-    color: white;
-    margin-left: 4rem;
-    font-weight: 500;
-    transition: 0.3s ease;
-    border-bottom: 3px solid transparent;
+nav {
+    display: flex;
+    padding: 1rem 0;
+    margin-left: 8rem;
 }
 
-nav a:hover, nav a.active{
-    color: #b74b4b;
-    border-bottom: 3px solid #b74b4b;
+nav a{
+    display: inline-block;
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 2rem;
+    font-weight: 500;
+    transition: all 0.3s ease-out;
+    padding: 1rem 2.8rem;
+    border: 0.2rem solid #b74b4b;
+    border-radius: 4rem;
+
+
+
+}
+
+nav a:hover {
+    transform: scale3d(1.03, 1.03, 1.03) translateY(-5px);
+    background-color: #b74b4b;
+    color: white;
+    box-shadow: 0 0 25px #b74b4b;
+}
+nav a.active {
+    background-color: #b74b4b;
+    color: black;
+    box-shadow: 0 0 25px #b74b4b;
 }
 
 @media (max-width: 995px) {
@@ -95,7 +114,7 @@ nav a:hover, nav a.active{
 
 section{
     min-height: 100vh;
-    padding: 5rem 9% 5rem;
+    padding: 5rem 1rem;
 }
 
 .home{
@@ -181,7 +200,7 @@ span{
 }
 
 .btn:hover{
-    transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03) translateY(-5px);
     background-color: #b74b4b;
     color: black;
     box-shadow: 0 0 25px #b74b4b;
@@ -262,3 +281,18 @@ span{
         margin-top: 4rem;
     }
 }
+
+#services div, #skills div, #education div, #experience div, #contact div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+    padding: 3rem;
+}
+
+#services h1, #skills h1, #education h1, #experience h1, #contact h1 {
+    display: inline-block;
+    text-align: center;
+    font-size: 3rem;
+}
+
