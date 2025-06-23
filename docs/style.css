@@ -18,7 +18,7 @@ html{
 
 body{
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto;
     width: 100%;
     min-height: 100vh;
     #overflow-x: hidden;
@@ -352,17 +352,19 @@ span{
 
 .drop-up {
     box-sizing: border-box;
-    height: 100vh;
-    width: 6vw;
+    height: auto;
+    width: 4vw;
     padding: 5px 1em;
     background-color: black;
-    border-right: 1px solid #b74b4b;
-    position: sticky;
-    top: 0;
+    /*border-right: 1px solid #b74b4b;*/
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
     align-self: start;
     transition: 300ms ease-in-out;
     overflow: hidden;
     text-wrap: nowrap;
+    z-index: 1002;
 }
 
 .drop-up.close {
@@ -370,25 +372,27 @@ span{
     width: 60px;
 }
 
+@media (max-width: 768px) {
+    .drop-up {
+        width: 50px; /* Smaller width for mobile */
+        right: 10px; /* Adjust position */
+        bottom: 10px;
+    }
+    .drop-up.close {
+        width: 40px;
+    }
+}
+
 .drop-up ul {
     list-style: none;
 }
 
-.drop-up ul li a.hover {
+.drop-up a:hover, .drop-up .dropdown-btn:hover{
     transform: scale3d(1.03, 1.03, 1.03) translateY(-5px);
-    color: white;
-    box-shadow: 0 0 25px #b74b4b;
+    background-color: white;
+    /*box-shadow: 0 0 2rem #b74b4b;*/
 
     svg{
-        fill: #ff8b8b;
-    }
-}
-
-.drop-up ul li.active a {
-    color: black;
-    box-shadow: 0 0 25px #b74b4b;
-
-    svg {
         fill: #ff8b8b;
     }
 }
@@ -404,10 +408,43 @@ span{
 }
 
 .dropdown-btn {
+    margin-left:auto;
+    padding: 1em;
     width: 100%;
     text-align: left;
     background: none;
     border: none;
     font: inherit;
     cursor: pointer;
+}
+
+.drop-up svg {
+    flex-shrink: 0;
+    fill: #ff8b8b;
+}
+
+.drop-up a span, .drop-up .dropdown-btn span {
+    flex-grow: 1;
+}
+
+.drop-up .sub-menu {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 300ms ease-in-out;
+    overflow: hidden;
+}
+
+.drop-up .sub-menu.show {
+    grid-template-rows: 1fr;
+}
+
+.dropdown-btn svg {
+    transition: 200ms ease;
+}
+.rotate svg {
+    transform: rotate(180deg);
+}
+
+.drop-up .sub-menu a {
+    padding-left: 2em;
 }
